@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    list-style:none
 }
 
 html, input, button {
@@ -11,7 +12,7 @@ html, input, button {
 body {
     height: 100vh;
     width: 100vw;
-    background-color: #F9F9F9;
+    background-color: #fae0e0;
     position: relative;
 }
 .container {
@@ -67,17 +68,31 @@ header h1 {
 .form button:hover {
     filter: brightness(0.8);
 }
+
+input[type="text"] {
+    padding: 10px; /* Preenchimento dentro do campo de entrada. */
+    width: 70%; /* Define a largura do campo de entrada para 70% do seu contêiner pai. */
+    margin-right: 10px; /* Espaço à direita do campo de entrada. */
+    border: 2px solid #ccc; /* Borda cinza clara ao redor do campo de entrada. */
+    border-radius: 5px; /* Bordas arredondadas para o campo de entrada. */
+}
+
 .list {
     width: 100%;
     max-width: 720px;
     margin: 0 auto;
 }
 
-.list div {
+.list > div {
     display: flex;
     justify-content: space-between;
+    align-items: center ;
     padding: 16px 0;
     margin-bottom: 32px;
+}
+
+.list strong {
+    font-size: 18px; /* Tamanho da fonte para o título da lista. */
 }
 
 .list div button {
@@ -90,15 +105,63 @@ header h1 {
     filter: brightness(0.8);
 }
 
-.list ul {
+ul {
     list-style: none;
+
 }
 
-.list ul li {
+.button-group {
+    display: flex; /* Usa flexbox para alinhar os botões dentro do grupo. */
+    justify-content: flex-end; /* Alinha os botões à direita dentro de seu contêiner. */
+    width: 100%; /* O grupo de botões ocupa toda a largura do seu contêiner pai. */
+}
+
+/* Estiliza os botões 'Editar' e 'Excluir' */
+.edit, .delete {
+    padding: 5px 10px; /* Preenchimento dentro dos botões. */
+    margin-left: 5px; /* Espaço à esquerda de cada botão para separá-los um do outro. */
+    color: white; /* Define a cor do texto para branco. */
+    font-weight: bold; /* Torna o texto dos botões em negrito para destacá-los. */
+}
+
+/* Estiliza os itens da lista */
+li {
+    display: flex; /* Usa flexbox para alinhar elementos dentro do item da lista. */
+    justify-content: space-between; /* Distribui espaço entre o texto e o grupo de botões, empurrando-os para extremidades opostas. */
+    align-items: center; /* Centraliza os elementos verticalmente dentro do item da lista. */
+    padding: 10px; /* Preenchimento dentro de cada item da lista. */
+    background: #eee; /* Cor de fundo cinza claro para cada item da lista. */
+    border-radius: 5px; /* Bordas arredondadas para cada item da lista. */
+    margin-bottom: 5px;
+}
+
+/* Estiliza o botão 'Editar' */
+.edit {
+    background-color: #4CAF50; /* Cor de fundo verde para o botão 'Editar'. */
+}
+
+/* Estiliza o botão 'Excluir' */
+.delete {
+    background-color: #f44336; /* Cor de fundo vermelha para o botão 'Excluir'. */
+}
+
+/* .list ul li {
     padding: 16px;
     background: #fff;
     border-radius: 5px;
     color: #44546A;
+} */
+
+.lista-interesses {
+    padding: 10px;
+    margin: 1px;
+    border: 1px solid #000;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
 }
 
 .news {
@@ -127,4 +190,9 @@ header h1 {
     text-overflow: ellipsis;
     font-size: 14px;
     color: #44546A;
+}
+
+li.done {
+    text-decoration: line-through;
+    color: #ccc;
 }
