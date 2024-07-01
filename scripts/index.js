@@ -1,3 +1,4 @@
+// Esse evento executa a função assim que a pagina for totalmente carregada
 document.addEventListener("DOMContentLoaded", function () {
   const inputElemento = document.getElementById("novo-interesse");
   const listaElemento = document.getElementById("lista-interesses");
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     itemText.textContent = texto;
     item.appendChild(itemText);
 
-    // Cria um contêiner para os botões.
+    // Cria uma div para os botões.
     const buttonContainer = document.createElement("div");
 
     const editButton = document.createElement("button");
@@ -32,42 +33,44 @@ document.addEventListener("DOMContentLoaded", function () {
     editButton.className = "edit";
     editButton.onclick = function () {
       const novoTexto = prompt("Edite seu interesse:", itemText.textContent);
-      if (novoTexto) itemText.textContent = novoTexto; // Atualiza o texto se for modificado.
-      salvarInteresses(); // Salva os novos interesses no localStorage.
+      if (novoTexto) itemText.textContent = novoTexto;
+      salvarInteresses(); 
     };
-    buttonContainer.appendChild(editButton); // Adiciona o botão de editar ao contêiner.
+
+    // Evento para adicionar o botão de editar
+    buttonContainer.appendChild(editButton); 
 
     // Cria e configura o botão de excluir.
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Excluir";
     deleteButton.className = "delete";
     deleteButton.onclick = function () {
-      listaElemento.removeChild(item); // Remove o item da lista.
-      salvarInteresses(); // Atualiza o localStorage após a remoção.
+      listaElemento.removeChild(item);
+      salvarInteresses();
     };
-    buttonContainer.appendChild(deleteButton); // Adiciona o botão de excluir ao contêiner.
+    // Evento para adicionar o botão de excluir
+    buttonContainer.appendChild(deleteButton); 
 
-    // Adiciona o contêiner de botões ao item da lista.
     item.appendChild(buttonContainer);
-    // Adiciona o item completo à lista no DOM.
+ 
     listaElemento.appendChild(item);
 
-    // Adiciona uma funcionalidade para marcar o item como concluído.
+    // Adiciona uma funcionalidade para riscar o item como concluido.
     itemText.onclick = function () {
       item.classList.toggle("done");
     };
   }
 
-  // Adiciona um ouvinte de evento ao botão de adicionar que cria um novo item.
+  // Evento para adicionar novo item a lista de interesses
   buttonElemento.addEventListener("click", function () {
-    const novaTarefa = inputElemento.value.trim();
-    if (novaTarefa) {
+    const novoItem = inputElemento.value.trim();
+    if (novoItem) {
       adicionarItem(novaTarefa);
-      inputElemento.value = ""; // Limpa o campo de entrada após adicionar.
-      salvarInteresses(); // Salva o novo estado dos interesses.
+      inputElemento.value = ""; // Limpa o campo de entrada.
+      salvarInteresses(); 
       inputElemento.focus();
     } else {
-      alert("Por favor, digite um interesse!"); // Alerta se o campo de entrada estiver vazio.
+      alert("Por favor, digite um interesse!");
     }
   });
 
@@ -88,15 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
     listaElemento.innerHTML = "";
   }
 
-  // Chama as funções para exibir os interesses e adicionar os eventos necessários.
-  exibirInteresses();
-  buttonLimpaLista.addEventListener("click", limpaLista);
-  setInterval(exibirInteresses,1000)
-});
-
-
-
-// ---------- Obter Noticias ------------------
+  
+// Obtem noticias através da api fetch
 async function obterNoticia() {
   try {
     const url =
@@ -117,5 +113,15 @@ async function obterNoticia() {
   }
 }
 
+  // Chama as funções para exibir os interesses e adicionar os eventos necessários.
+  exibirInteresses();
+  buttonLimpaLista.addEventListener("click", limpaLista);
+  setInterval(exibirInteresses,1000)
+  obterNoticia();
 
-obterNoticia();
+});
+
+
+
+
+
