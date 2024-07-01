@@ -8,19 +8,17 @@
 <div align="center">
 
   [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
-  [![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+ 
 
 </div>
 
 ---
 
-<p align="center"> ste mini-projeto tem o objetivo de criar uma lista de itens tanto na página como na localstorage.
+<p align="center"> Este mini-projeto tem o objetivo de criar uma lista de itens tanto na página como na localstorage.
     <br> 
 </p>
 
-## 📝 Table of Contents
+## 📝 Índice
 - [Sobre](#about)
 - [Como Executar](#getting_started)
 - [Autor](#authors)
@@ -33,5 +31,5 @@ Também terá um quadro com noticias do IBGE, que será capturada através da AP
 Para a execução deste projeto basta você carregar o index.html no seu navegador
 
 ## ✍️ Autor <a name = "authors"></a>
-- [@kbolaguerreiro](https://github.com/bolaguerreiro/) - Desenvolvimento
+- [@bolaguerreiro](https://github.com/bolaguerreiro/) - Desenvolvimento
 
